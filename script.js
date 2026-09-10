@@ -175,7 +175,7 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
-        const SECRET_PIN = "060425";
+        const SECRET_PIN = "0404";
 
         let pinAttempt = 0;
         let popupTimeout = null;
@@ -219,7 +219,7 @@
 
             if (isSuccess) {
                 // Tampilan sukses — pakai foto kucing senang
-                pinPopupImg.src = 'img/cat-success.png';
+                pinPopupImg.src = 'img/cat-succes.png';
                 pinPopupImg.classList.remove('hidden-img');
                 pinPopupBox.classList.add('popup-success');
                 pinPopupMsg.textContent = config.message;
@@ -281,7 +281,7 @@
 
         if (pinInput) {
             pinInput.addEventListener('input', function () {
-                if (pinInput.value.length === 6) {
+                if (pinInput.value.length === 4) {
                     // Delay sedikit agar digit terakhir terasa diketik
                     setTimeout(() => {
                         if (pinInput.value === SECRET_PIN) {
@@ -771,18 +771,27 @@ document.addEventListener('DOMContentLoaded', () => {
             canvas.width = 220;
             canvas.height = Math.round(220 * 16 / 9);
 
-            ctx.fillStyle = '#0a0a0a';
+            ctx.fillStyle = '#FFF8E1';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            for (let i = 0; i < 200; i++) {
+            // Glitter emas kecil-kecil
+            for (let i = 0; i < 300; i++) {
                 ctx.beginPath();
                 ctx.arc(
                     Math.random() * canvas.width,
                     Math.random() * canvas.height,
-                    Math.random() * 1.5,
+                    Math.random() * 1.8 + 0.3,
                     0, Math.PI * 2
                 );
-                ctx.fillStyle = Math.random() > 0.5 ? 'rgba(255,255,255,0.8)' : 'rgba(255,182,193,0.8)';
+                const goldColors = [
+                    'rgba(255, 215, 0, 0.9)',
+                    'rgba(218, 165, 32, 0.85)',
+                    'rgba(255, 193, 7, 0.8)',
+                    'rgba(253, 216, 53, 0.75)',
+                    'rgba(255, 235, 59, 0.7)',
+                    'rgba(245, 127, 23, 0.6)'
+                ];
+                ctx.fillStyle = goldColors[Math.floor(Math.random() * goldColors.length)];
                 ctx.fill();
             }
 
