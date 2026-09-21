@@ -805,12 +805,25 @@ body {
 /* =========================================
    FOTO PRIBADI NEON (Slide 5)
 ========================================= */
+.polaroid-top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.polaroid-top .polaroid {
+    transform: rotate(0deg);
+    animation: float-polaroid 5s ease-in-out infinite;
+    width: calc((450px - 20px) / 2);
+    /* Lebar sama dengan polaroid di grid: (max-width grid - gap) / 2 kolom */
+}
+
 .polaroid-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     /* Membuat susunan 2 ke samping */
     gap: 20px;
-    margin: 20px auto 0 auto;
+    margin: 0 auto;
     /* Memastikan posisinya tepat di tengah */
     max-width: 450px;
     /* KUNCI: Membatasi lebar maksimal agar fotonya tidak terlalu besar */
@@ -1111,6 +1124,10 @@ body {
 
     .glass-panel .scroll-hint {
         font-size: 0.7rem;
+    }
+
+    .polaroid-top {
+        margin-bottom: 10px;
     }
 
     .polaroid-grid {
